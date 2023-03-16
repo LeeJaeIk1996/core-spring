@@ -1,13 +1,21 @@
 package hello.corespring.member;
 
+import hello.corespring.AppConfig;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 // 회원 도메인 테스트
 // lec) 후에 build할 경우 main의 코드만 나가고 test의 코드는 build될 때 빠진다.
 public class MemberServiceTest {
 
-    MemberService memberService = new MemberServiceImpl();
+    MemberService memberService;
+
+    @BeforeEach
+    void beforeEach() {
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+    }
 
     @Test
     void join() {

@@ -12,8 +12,11 @@ public class MemberApp {
     // tip) psvm을 입력하면 바로 나옴
     public static void main(String[] args) {
 
+        // 어플리케이션 전체를 설정하고 구성하는 AppConfig 클래스 생성
+        AppConfig appConfig = new AppConfig();
+
         // 회원 가입 및 조회를 위해 memberService 생성
-        MemberService memberService = new MemberServiceImpl();
+        MemberService memberService = appConfig.memberService();
 
         // 회원 객체 생성 및 회원 가입
         Member member = new Member(1L, "memberA", Grade.VIP);

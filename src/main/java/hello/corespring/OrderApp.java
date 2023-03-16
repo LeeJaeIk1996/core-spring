@@ -12,8 +12,12 @@ import hello.corespring.order.OrderServiceImpl;
 public class OrderApp {
 
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
+
+        // 어플리케이션 전체를 설정하고 구성하는 AppConfig 클래스 생성
+        AppConfig appConfig = new AppConfig();
+
+        MemberService memberService = appConfig.memberService();
+        OrderService orderService = appConfig.orderService();
 
         long memberId = 1L;
         Member member = new Member(memberId, "memberA", Grade.VIP);
